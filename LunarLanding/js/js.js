@@ -48,14 +48,7 @@ window.onload = function(){
 	}
 	document.onkeyup = motorOff;
 	
-	document.ontouchstart = function() {
-		if (a == g && y > 20){
-			motorOn();
-		} else {
-			motorOff();
-		}
-	}
-	document.ontouchend = motorOff;
+	
 	
 	//Empezar a mover nave
 	start();
