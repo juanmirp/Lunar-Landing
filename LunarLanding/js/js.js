@@ -1,6 +1,6 @@
 var y = 100; // altura inicial y0=10%, debe leerse al iniciar si queremos que tenga alturas diferentes dependiendo del dispositivo
 var v = 0;
-var g = -1.622;
+var g = -9.8;
 var a = g;
 var dt = 0.016683;
 var timer=null;
