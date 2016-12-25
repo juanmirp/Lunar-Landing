@@ -1,11 +1,11 @@
-var y = 100; // altura inicial y0=10%, debe leerse al iniciar si queremos que tenga alturas diferentes dependiendo del dispositivo
+var y = 90; // altura inicial y0=10%, debe leerse al iniciar si queremos que tenga alturas diferentes dependiendo del dispositivo
 var v = 0;
-var g = -9.8;
+var g = 9.8;
 var a = g;
 var dt = 0.016683;
-var timer=null;
-var timerFuel=null;
-var fuel=100;
+var timer = null;
+var timerFuel = null;
+var fuel = 100;
 
 window.onload = function(){
 	//mostrar menú móvil
@@ -24,8 +24,11 @@ window.onload = function(){
 		document.getElementById("showm").style.width = 48 + "px";
 	}
 	
+	//Comenzar una nueva partida
 	document.getElementById("play").onclick = function(){
 		restart();
+		document.getElementById("showm").style.height = 48 + "px";
+		document.getElementById("showm").style.width = 48 + "px";
 	}
 	
 	//encender/apagar el motor al pulsar/soltar el botón izquierdo del raton en la pantalla
@@ -48,6 +51,7 @@ window.onload = function(){
 	}
 	document.onkeyup = motorOff;
 	
+	//encender/apagar al tocar/dejar de tocar la pantalla
 	document.ontouchstart = function() {
 		if (a == g && y > 20){
 			motorOn();
@@ -57,14 +61,14 @@ window.onload = function(){
 	}
 	document.ontouchend = motorOff;
 	
-	//Empezar a mover nave
-	start();
+	//muestra el menu en el móvil
+	document.getElementsByClassName("c")[0].style.display = "block";
+	
 }
 
 //Definición de funciones
 function start(){
 	timer = setInterval(function(){ moverNave(); }, dt*1000);
-	motorOff();
 }
 
 function stop(){
@@ -73,11 +77,13 @@ function stop(){
 
 function restart(){
 	stop();
-	y = 100;
+	y = 90;
 	v = 0;
 	fuel = 100;
 	document.getElementById("fuel").innerHTML = fuel;
 	document.getElementsByClassName("c")[0].style.display = "none";
+	document.getElementById("fin").style.display = "none";
+	motorOff();
 	start();
 }
 
@@ -87,17 +93,24 @@ function moverNave(){
 	}
 	v += a*dt;
 	document.getElementById("velocidad").innerHTML = v;
-	y += v*dt;
+	y -= v*dt;
 	document.getElementById("altura").innerHTML = y-20;
 	
-	//mover hasta que top sea un 70% de la pantalla
+	//Mover hasta que top sea un 80% de la pantalla y explotar si supera cierta velocidad al tocar la superficie.
 	if (y > 20){
 		document.getElementById("nave").style.top = (100-y)+"%";
 	} else { 
 		stop();
 		document.getElementById("altura").innerHTML = 0;
-		if (v < -5){
+		if (v > 5){
 			document.getElementById("cohete").src = "img/explosion.png";
+			document.getElementById("fin").style.display = "block";
+			document.getElementById("fin").style.color = "red";
+			document.getElementById("fin").innerHTML = "Misión fallida. Es una vergüenza para los de su especie, comandante."
+		}else{
+			document.getElementById("fin").style.display = "block";
+			document.getElementById("fin").style.color = "blue";
+			document.getElementById("fin").innerHTML = "¡Enhorabuena comandante! Misión cumplida con éxito.";
 		}
 	}
 }
@@ -110,6 +123,7 @@ function motorOn(){
 			document.getElementById("cohete").src = "img/Cohete.png";
 		}
 	} else {
+		//Si la nave no tiene combustible no tiene que sacar fuego.
 		document.getElementById("cohete").src = "img/CoheteSinFuego.png";
 	}
 }
@@ -119,7 +133,8 @@ function motorOff(){
 	clearInterval(timerFuel);
 	timerFuel = null;
 	document.getElementById("cohete").src = "img/CoheteSinFuego.png";
-	if (y <= 20 && v < -5){
+	//Para que la nave no cambie si ha explotado.
+	if (y <= 20 && v > 5){
 		document.getElementById("cohete").src = "img/explosion.png";
 	}
 }
