@@ -147,7 +147,7 @@ function motorOff(){
 	timerFuel = null;
 	document.getElementById("cohete").src = "img/CoheteSinFuego.png";
 	//Para que la nave no cambie si ha explotado.
-	if (y <= 20 && v > 5){
+	if (y <= 20 && v > maxv){
 		document.getElementById("cohete").src = "img/explosion.png";
 	}
 }
