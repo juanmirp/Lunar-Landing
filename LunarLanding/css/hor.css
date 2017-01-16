@@ -18,16 +18,36 @@ body,html{
 	display: inline-block;
 	height: 100%;
 	float: left;
+	position: relative;
+	z-index: 2;
 }
 .a,.c{
 	background-color: rgba(43, 36, 74, 0.5);
 	outline: 3px ridge rgb(50, 0, 50);
 	width: 28%;
-	position: relative;
-	z-index: 2;
 }
 .b{
 	width: 44%;
+}
+#nave{
+	text-align: center;
+	z-index: 1;
+	position: fixed;
+	top: 10%;
+	width: 100%;
+	height: 15%;
+}
+#nave img{
+	height: 100%;
+}
+#tierra{
+	position: fixed;
+	left: 30%;
+	width: 100%;
+	height: 30%
+}
+#tierra img{
+	height: 100%;
 }
 .configuracion{
 	display: none;
@@ -44,6 +64,9 @@ body,html{
 }
 .configuracion ul{
 	padding: 0;
+}
+.configuracion li{
+	margin-bottom: 8%;
 }
 .configuracion input{
 	background-color: rgb(102, 153, 153);
@@ -83,26 +106,6 @@ body,html{
 	background-image: url(../img/Superficie.png);
 	background-size: 100% 100%;
     background-repeat: no-repeat;
-}
-#nave{
-	text-align: center;
-	z-index: 1;
-	position: fixed;
-	top: 10%;
-	width: 100%;
-	height: 15%;
-}
-#nave img{
-	height: 100%;
-}
-#tierra{
-	position: fixed;
-	left: 30%;
-	width: 100%;
-	height: 30%
-}
-#tierra img{
-	height: 100%;
 }
 #hidem,#showm{
 	display: none;

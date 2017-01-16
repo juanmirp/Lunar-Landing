@@ -7,43 +7,27 @@ body,html{
     background-repeat: no-repeat;
 	font-family: "Lucida Console", Monaco, monospace;
 	font-weight: bold;
-	font-size: 4vw;
+	font-size: 2.5vw;
 	color: rgb(105, 143, 0);
 }
-.a{
-	background-color: rgba(43, 36, 74, 0.5);
-	outline: 3px ridge rgb(50, 0, 50);
-	width: 100%;
-	height: 90px;
-	overflow: hidden;
-	position: fixed;
-	top: 0px;
-	font-size: 3vw;
+.c{
+	display: block !important;
+	text-align: center;
 }
-.b{
-	display: block;
-	position: fixed;
-	top: 91px;
-	width: 100%;
-	height: 88%;
+.a,.b,.c{
+	display: inline-block;
+	height: 100%;
+	float: left;
+	position: relative;
 	z-index: 2;
 }
-.c{
+.a,.c{
 	background-color: rgba(43, 36, 74, 0.5);
-	text-align: center;
-	position: fixed;
-	top: 0px;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
-	display: none;
-	z-index: 3;
+	outline: 3px ridge rgb(50, 0, 50);
+	width: 28%;
 }
-.d{
-	position: fixed;
-	bottom: 0px;
-	height: 10%;
-	width: 100%;
+.b{
+	width: 44%;
 }
 #nave{
 	text-align: center;
@@ -51,7 +35,7 @@ body,html{
 	position: fixed;
 	top: 10%;
 	width: 100%;
-	height: 15%
+	height: 15%;
 }
 #nave img{
 	height: 100%;
@@ -68,34 +52,32 @@ body,html{
 .configuracion{
 	display: none;
 	position: fixed;
-	z-index: 4;
+	z-index: 3;
 	background-color: rgba(43, 36, 74, 0.9);
 	height: 100%;
-	width: 100%;
+	width:100%;
 	text-align: center;
 }
 .configuracion p{
-	margin: 8%;
-	margin-bottom: 15%;
-	font-size: 6vw;
+	margin: 5%;
 	color: rgb(170, 155, 255);
 }
 .configuracion ul{
 	padding: 0;
 }
 .configuracion li{
-	margin-bottom: 25%;
+	margin-bottom: 20%;
 }
 .configuracion input{
 	background-color: rgb(102, 153, 153);
 	transition-duration: 0.4s;
 	border-radius: 8px;
-	padding: 3% 5% 3% 5%;
+	padding: 1% 3% 1% 3%;
     text-align: center;
     text-decoration: none;
 	font-family: "Lucida Console", Monaco, monospace;
 	font-weight: bold;
-	font-size: 5vw;
+	font-size: 2.5vw;
 	color: green;
 }
 .configuracion input:hover{
@@ -105,12 +87,12 @@ body,html{
 	background-color: rgb(102, 153, 153);
 	transition-duration: 0.4s;
 	border-radius: 8px;
-	padding: 3% 5% 3% 5%;
+	padding: 1% 3% 1% 3%;
     text-align: center;
     text-decoration: none;
 	font-family: "Lucida Console", Monaco, monospace;
 	font-weight: bold;
-	font-size: 5vw;
+	font-size: 2.5vw;
 	color: rgb(105, 143, 0);
 }
 .configuracion button:hover{
@@ -125,30 +107,18 @@ body,html{
 	background-size: 100% 100%;
     background-repeat: no-repeat;
 }
-#showm{
-	float: right;
-	height: 48px;
-	width: 48px;
-	background-image: url("../img/Engranaje.png");
-	background-repeat: no-repeat;
-	background-size: 100%;
+#hidem,#showm{
+	display: none;
 }
 #cpanel{
-	position: relative;
-	margin: 3%;
-	padding: 0;
-	width: 70%;
+	padding-left: 5%;
 }
-#cpanel li{
-	margin-bottom: 5%;
-	list-style-type: none;
-}
-#menu li{
-	margin: 15%;
+li{
+	margin-bottom: 35%;
 	list-style-type: none;
 }
 li.link{
-	margin-bottom: 20% !important;
+	margin-bottom: 40% !important;
 }
 a{
 	text-decoration: none;
@@ -166,6 +136,10 @@ a{
 a:hover{
     background-color: rgb(0, 102, 102);
 }
+#menu{
+	margin-bottom: 0;
+	padding: 0;
+}
 #menu button{
 	background-color: rgb(102, 153, 153);
 	transition-duration: 0.4s;
@@ -175,19 +149,21 @@ a:hover{
     text-decoration: none;
 	font-family: "Lucida Console", Monaco, monospace;
 	font-weight: bold;
-	font-size: 4vw;
+	font-size: 2.5vw;
 	color: rgb(105, 143, 0);
 }
 #menu button:hover{
     background-color: rgb(0, 102, 102);
 }
-#pausa{
-	display: none;
+#menu li:last-child{
+	margin: 0;
+}
+#acercade{
+	margin-bottom: 20% !important;
 }
 #about{
 	background-color: rgba(43, 36, 74, 0.9);
 	outline: 3px ridge rgb(50, 0, 50);
-	top: 0;
 	position: fixed;
 	height: 100%;
 	width: 100%;
@@ -195,11 +171,11 @@ a:hover{
 	z-index: 2;
 }
 #about p{
-	margin: 10%;
+	margin: 5%;
 }
 #about a{
 	position: relative;
-	padding: 5%;
+	padding: 2%;
 	left: 40%;
 }
 #about a:hover{
@@ -209,18 +185,17 @@ a:hover{
 	background-color: rgba(43, 36, 74, 0.9);
 	outline: 3px ridge rgb(50, 0, 50);
 	position: fixed;
-	top: 0;
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
 	z-index: 2;
 }
 #instrucciones p{
-	margin: 8%;
+	margin: 5%;
 }
 #instrucciones a{
 	position: relative;
-	padding: 5%;
+	padding: 2%;
 	left: 40%;
 }
 #instrucciones a:hover{
@@ -235,11 +210,11 @@ strong{
 	position: fixed;
 	display: none;
 	top: 30%;
-	left: 15%;
+	left: 29%;
 	height: 10%;
-	width: 70%;
-	padding: 3%;
-	padding-top: 5%;
+	width: 40%;
+	padding: 1%;
+	padding-top: 3%;
 	overflow: hidden;
 	z-index: 2;
 }

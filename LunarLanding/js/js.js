@@ -10,6 +10,7 @@ var maxv = 7; //velocidad limite para que no explote
 var pause = true;
 var comenzado = false;
 var apretado = false;
+var gameOver = true;
 
 window.onload = function(){
 	//mostrar menú móvil
@@ -33,14 +34,14 @@ window.onload = function(){
 	document.getElementsByTagName("input")[0].onclick = changeDifficulty;
 	
 	//encender/apagar el motor al pulsar/soltar el botón izquierdo del raton en la pantalla
-	document.onmousedown = function () {
+	document.getElementsByClassName("b")[0].onmousedown = function () {
 		if (a == g && y > 20 && !pause){
 			motorOn();
 		} else {
 			motorOff();
 		}
 	}
-	document.onmouseup = motorOff;
+	document.getElementsByClassName("b")[0].onmouseup = motorOff;
 	
 	//encender/apagar al apretar/soltar una tecla
 	document.onkeydown = function() {
@@ -119,16 +120,26 @@ function moverNave(){
 		document.getElementById("altura").innerHTML = 0;
 		clearInterval(timerFuel);
 		if (v > maxv){
-			document.getElementById("cohete").src = "img/explosion.png";
-			document.getElementById("fin").style.display = "block";
-			document.getElementById("fin").style.color = "red";
-			document.getElementById("fin").innerHTML = "Misión fallida. Es una vergüenza para los de su especie, comandante."
+			lose();
 		}else{
-			document.getElementById("fin").style.display = "block";
-			document.getElementById("fin").style.color = "green";
-			document.getElementById("fin").innerHTML = "¡Enhorabuena comandante! Misión cumplida con éxito.";
+			win();
 		}
 	}
+}
+
+function win(){
+	gameOver = false;
+	document.getElementById("fin").style.display = "block";
+	document.getElementById("fin").style.color = "green";
+	document.getElementById("fin").innerHTML = "¡Enhorabuena comandante! Misión cumplida con éxito.";
+}
+
+function lose(){
+	gameOver = true;
+	document.getElementById("cohete").src = "img/explosion.png";
+	document.getElementById("fin").style.display = "block";
+	document.getElementById("fin").style.color = "red";
+	document.getElementById("fin").innerHTML = "Misión fallida. Es una vergüenza para los de su especie, comandante."
 }
 
 function motorOn(){
@@ -147,7 +158,7 @@ function motorOff(){
 	timerFuel = null;
 	document.getElementById("cohete").src = "img/CoheteSinFuego.png";
 	//Para que la nave no cambie si ha explotado.
-	if (y <= 20 && v > maxv){
+	if (y <= 20 && v > maxv && gameOver){
 		document.getElementById("cohete").src = "img/explosion.png";
 	}
 }
@@ -180,7 +191,7 @@ function hideMenu(){
 }
 
 function pauseResume(){
-	if(comenzado){
+	if(comenzado && y > 20){
 		if(pause != true){
 			stop();
 		}else{
