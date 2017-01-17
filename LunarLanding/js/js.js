@@ -10,7 +10,7 @@ var maxv = 7; //velocidad limite para que no explote
 var pause = true;
 var comenzado = false;
 var apretado = false;
-var gameOver = true;
+var gameOver = false;
 
 window.onload = function(){
 	//mostrar menú móvil
@@ -98,8 +98,9 @@ function restart(){
 	fuel = 100;
 	document.getElementById("fuel").innerHTML = fuel;
 	document.getElementById("fin").style.display = "none";
-	motorOff();
+	
 	comenzado = true;
+	gameOver = false;motorOff();
 	hideMenu();
 }
 
@@ -158,7 +159,7 @@ function motorOff(){
 	timerFuel = null;
 	document.getElementById("cohete").src = "img/CoheteSinFuego.png";
 	//Para que la nave no cambie si ha explotado.
-	if (y <= 20 && v > maxv && gameOver){
+	if (gameOver){
 		document.getElementById("cohete").src = "img/explosion.png";
 	}
 }
