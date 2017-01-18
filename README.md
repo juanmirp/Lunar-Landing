@@ -2,7 +2,7 @@
 Esta versión del proyecto contiene:
 * HTML con los elementos del juego.
 * Css: tres versiones que cargan mediante media query dependiendo del tamaño de pantalla.
-* JS: con javascript que cubre todas los requisitos del proyecto.
+* JS: con javascript que cubre todos los requisitos del proyecto.
 * Imágenes optimizadas.
 
 Tareas desarrolladas:
