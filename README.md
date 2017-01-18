@@ -15,6 +15,7 @@ Tareas desarrolladas:
 
 ##Nave:
 * Al pulsar la barra espaciadora o bien tocar la pantalla del móvil la nave cambia de aspecto a *nave con motor encendido* y cambia la aceleración de g a -g, y al soltar cualquiera de los dos, la nave vuelve a tener el aspecto de *nave con motor apagado*.
+* El valor de g se ha cambiado a 4 para que el juego sea más rápido.
 * La posición de la nave (en porcentaje de la pantalla) varia en función de la velocidad y esta en función de la aceleración.
 * Al pulsar la barra espaciadora o bien tocar la pantalla del móvil se vacia el tanque de combustible de forma proporcional al tiempo que mantenemos pulsado el propulsor.
 * Se ha optado por eliminar la funcionalidad de encender el motor al hacer click, de manera que solo lo hará al presionar la barra espaciadora o al tocar la pantalla.
