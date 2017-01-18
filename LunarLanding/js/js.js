@@ -12,7 +12,7 @@ var comenzado = false;
 var apretado = false;
 var gameOver = false;
 
-window.onload = function(){
+window.onload = function() {
 	//mostrar menú móvil
     document.getElementById("showm").onclick = showMenu;
 	
@@ -35,7 +35,7 @@ window.onload = function(){
 	
 	//encender/apagar el motor al pulsar/soltar el botón izquierdo del raton en la pantalla
 	document.getElementsByClassName("b")[0].onmousedown = function () {
-		if (a == g && y > 20 && !pause){
+		if (a == g && y > 20 && !pause) {
 			motorOn();
 		} else {
 			motorOff();
@@ -44,12 +44,12 @@ window.onload = function(){
 	document.getElementsByClassName("b")[0].onmouseup = motorOff;
 	
 	//encender/apagar al apretar/soltar la tecla W
-	document.onkeydown = function() {
+	document.onkeydown = function(event) {
 		var key1 = event.which || event.keycode;
-		if(key1 == 87){
+		if(key1 == 87) {
 			if(!apretado){
 				apretado = true
-				if (a == g && y > 20 && !pause){
+				if (a == g && y > 20 && !pause) {
 					motorOn();
 				} else {
 					motorOff();
@@ -65,16 +65,16 @@ window.onload = function(){
 	
 	//encender/apagar al tocar/dejar de tocar la pantalla
 	document.ontouchstart = function() {
-		if(!apretado){
+		if(!apretado) {
 			apretado = true
-			if (a == g && y > 20 && !pause){
+			if (a == g && y > 20 && !pause) {
 				motorOn();
 			} else {
 				motorOff();
 			}
 		}
 	}
-	document.ontouchend = function(){
+	document.ontouchend = function() {
 		apretado = false;
 		motorOff();
 	}
@@ -85,17 +85,17 @@ window.onload = function(){
 }
 
 //Definición de funciones
-function start(){
-	timer = setInterval(function(){ moverNave(); }, dt*1000);
+function start() {
+	timer = setInterval(function() { moverNave(); }, dt*1000);
 	pause = false;
 }
 
-function stop(){
+function stop() {
 	clearInterval(timer);
 	pause = true;
 }
 
-function restart(){
+function restart() {
 	stop();
 	y = 90;
 	v = 0;
@@ -109,8 +109,8 @@ function restart(){
 	document.getElementById("play").blur();
 }
 
-function moverNave(){
-	if (fuel == 0){
+function moverNave() {
+	if (fuel == 0) {
 		a = g;
 	}
 	v += a*dt;
@@ -119,21 +119,21 @@ function moverNave(){
 	document.getElementById("altura").innerHTML = (y-20).toFixed(2);
 	
 	//Mover hasta que top sea un 80% de la pantalla y explotar si supera cierta velocidad al tocar la superficie.
-	if (y > 20){
+	if (y > 20) {
 		document.getElementById("nave").style.top = (100-y)+"%";
 	} else { 
 		stop();
 		document.getElementById("altura").innerHTML = 0;
 		clearInterval(timerFuel);
-		if (v > maxv){
+		if (v > maxv) {
 			lose();
-		}else{
+		} else {
 			win();
 		}
 	}
 }
 
-function win(){
+function win() {
 	gameOver = false;
 	document.getElementById("cohete").src = "img/CoheteSinFuego.png";
 	document.getElementById("fin").style.display = "block";
@@ -141,7 +141,7 @@ function win(){
 	document.getElementById("fin").innerHTML = "¡Enhorabuena comandante! Misión cumplida con éxito.";
 }
 
-function lose(){
+function lose() {
 	gameOver = true;
 	document.getElementById("cohete").src = "img/explosion.png";
 	document.getElementById("fin").style.display = "block";
@@ -149,30 +149,30 @@ function lose(){
 	document.getElementById("fin").innerHTML = "Misión fallida. Es una vergüenza para los de su especie, comandante."
 }
 
-function motorOn(){
+function motorOn() {
 	if (fuel > 0) {
 		a = -g;
-		if (timerFuel == null){
+		if (timerFuel == null) {
 			timerFuel = setInterval(function(){	actualizarFuel(); }, 10);
 			document.getElementById("cohete").src = "img/Cohete.png";
 		}
 	}
 }
 
-function motorOff(){
+function motorOff() {
 	a = g;
 	clearInterval(timerFuel);
 	timerFuel = null;
 	document.getElementById("cohete").src = "img/CoheteSinFuego.png";
 	//Para que la nave no cambie si ha explotado.
-	if (gameOver){
+	if (gameOver) {
 		document.getElementById("cohete").src = "img/explosion.png";
 	}
 }
 
-function actualizarFuel(){
+function actualizarFuel() {
 	//Aquí hay que cambiar el valor del marcador de Fuel...
-	if (fuel > 0){
+	if (fuel > 0) {
 		fuel -= 0.1;
 		document.getElementById("fuel").innerHTML = fuel.toFixed(1);
 	} else {
@@ -181,15 +181,15 @@ function actualizarFuel(){
 	}	
 }
 
-function showMenu(){
+function showMenu() {
 	document.getElementsByClassName("c")[0].style.display = "block";
 	stop();
 	document.getElementById("showm").style.height = 36 + "px";
 	document.getElementById("showm").style.width = 36 + "px";
 }
 
-function hideMenu(){
-	if(comenzado){
+function hideMenu() {
+	if(comenzado) {
 	document.getElementsByClassName("c")[0].style.display = "none";
 	start();
 	document.getElementById("showm").style.height = 48 + "px";
@@ -197,38 +197,38 @@ function hideMenu(){
 	}
 }
 
-function pauseResume(){
-	if(comenzado && y > 20){
-		if(pause){
+function pauseResume() {
+	if(comenzado && y > 20) {
+		if(pause) {
 			start();
-		}else{
+		} else {
 			stop();
 		}
 	}
 }
 
-function showConfig(){
+function showConfig() {
 	stop();
 	document.getElementsByClassName("configuracion")[0].style.display = "block";
 	document.getElementsByClassName("c")[0].style.display = "none";
 }
 
-function hideConfig(){
+function hideConfig() {
 	document.getElementsByClassName("configuracion")[0].style.display = "none";
 	document.getElementsByClassName("c")[0].style.display = "block";
 }
 
-function changeDifficulty(){
+function changeDifficulty() {
 	var diff = document.getElementsByTagName("input")[0].value;
-	if(diff == "Fácil"){
+	if(diff == "Fácil") {
 		document.getElementsByTagName("input")[0].style.color = "orange";
 		document.getElementsByTagName("input")[0].value = "Medio";
 		maxv = 5;
-	}else if(diff == "Medio"){
+	}else if(diff == "Medio") {
 		document.getElementsByTagName("input")[0].style.color = "red";
 		document.getElementsByTagName("input")[0].value = "Difícil";
 		maxv = 1;
-	}else{
+	} else {
 		document.getElementsByTagName("input")[0].style.color = "green";
 		document.getElementsByTagName("input")[0].value = "Fácil";
 		maxv = 7;
