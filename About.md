@@ -1,5 +1,11 @@
 * Este proyecto ha sido creado por Pedro Amat Duran.
-* Fuente de las imagenes:  pngimg.com, pexels.com. Imágenes con licencia de uso público.
+
+* Fuente de las imagenes:
+ * pngimg.com
+ * pexels.com
+ 
+Las imágenes utilizadas tienen licencia de us público.
+
 * Programas utilizados:
  * Notepad++ (para programar el proyecto)
  * Gimp 2 (para edición de imagenes)
