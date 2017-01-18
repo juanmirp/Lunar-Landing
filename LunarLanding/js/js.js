@@ -64,7 +64,7 @@ window.onload = function(){
 	}
 	
 	//encender/apagar al tocar/dejar de tocar la pantalla
-	document.ontouchstart = function() {
+	/*document.ontouchstart = function() {
 		if(!apretado){
 			apretado = true
 			if (a == g && y > 20 && !pause){
@@ -77,7 +77,7 @@ window.onload = function(){
 	document.ontouchend = function(){
 		apretado = false;
 		motorOff();
-	}
+	}*/
 	
 	//muestra el menu en el móvil al cargar la página
 	document.getElementsByClassName("c")[0].style.display = "block";
@@ -173,7 +173,7 @@ function actualizarFuel(){
 	//Aquí hay que cambiar el valor del marcador de Fuel...
 	if (fuel > 0){
 		fuel -= 0.1;
-		document.getElementById("fuel").innerHTML = fuel.toFixed(2);
+		document.getElementById("fuel").innerHTML = fuel.toFixed(1);
 	} else {
 		motorOff();
 		document.getElementById("fuel").innerHTML = 0;
