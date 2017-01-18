@@ -7,6 +7,7 @@ Esta versión del proyecto contiene:
 
 Tareas desarrolladas:
 * Se ha puesto fondo, imagen de la nave y Luna. Se ha puesto una tierra fijada a la pantalla para que se vea en cualquier tipo de dispositivo. Se han optimizado las imágenes. Se cargarán diferentes tamaños y formas de fondos en función del dispositivo usando css.
+* Las páginas funcionan en diferentes buscadores.
 * Se ha creado un menú a un lado de la pantalla para la versión de escritorio y un menú que ocupa el 100% del espacio disponible para el móvil.
 * Al pulsar la tecla "W" o bien hacer click en la pantalla la nave debe cambia de aspecto a *nave con motor encendido* y cambia la aceleración de g a -g, y al soltar cualquiera de los dos, la nave vuelve a tener el aspecto de *nave con motor apagado*.
 * Al pulsar la tecla "W" o bien hacer click en la pantalla se vacia el tanque de combustible de forma proporcional al tiempo que mantenemos pulsado el propulsor.
