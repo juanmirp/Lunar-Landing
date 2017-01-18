@@ -4,7 +4,7 @@
  * pngimg.com
  * pexels.com
  
-Las imágenes utilizadas tienen licencia de us público.
+Las imágenes utilizadas tienen licencia de uso público.
 
 * Programas utilizados:
  * Notepad++ (para programar el proyecto)
