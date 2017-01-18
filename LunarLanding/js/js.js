@@ -25,6 +25,13 @@ window.onload = function() {
 	//botón de pausa que para o reanuda la partida
 	document.getElementById("pausa").onclick = pauseResume;
 	
+	document.onkeypress = function(event) {
+		var keyCode = event.which || event.keyCode;
+		if(keyCode == 80 || keyCode == 112) {
+			pauseResume();
+		}
+	}
+	
 	//mostrar/ocultar configuración
 	document.getElementById("config").onclick = showConfig;
 	
@@ -191,8 +198,10 @@ function pauseResume() {
 	if(comenzado && y > 20) {
 		if(pause) {
 			start();
+			document.getElementById("pausa").innerHTML = "Pausa";
 		} else {
 			stop();
+			document.getElementById("pausa").innerHTML = "Continuar";
 		}
 	}
 	document.getElementById("pausa").blur();
