@@ -10,6 +10,7 @@ Tareas desarrolladas:
 * Las páginas funcionan en diferentes buscadores.
 * Se ha creado un menú a un lado de la pantalla para la versión de escritorio y un menú que ocupa el 100% del espacio disponible para el móvil.
 * Al pulsar la tecla "W" o bien hacer click en la pantalla la nave debe cambia de aspecto a *nave con motor encendido* y cambia la aceleración de g a -g, y al soltar cualquiera de los dos, la nave vuelve a tener el aspecto de *nave con motor apagado*.
+* La posición de la nave (en porcentaje de la pantalla) varia en función de la velocidad y esta en función de la aceleración.
 * Al pulsar la tecla "W" o bien hacer click en la pantalla se vacia el tanque de combustible de forma proporcional al tiempo que mantenemos pulsado el propulsor.
 * Se ha controlado que la nave se "apague" cuando se le acabe el combustible y cuando llegue al suelo a la velocidad adecuada.
 * Se ha invertido el sistema de referencia, es decir, la velocidad de la nave cuando baje será positiva y la altura disminuirá hasta llegar a 0.
