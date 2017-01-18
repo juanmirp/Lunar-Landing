@@ -16,3 +16,5 @@ Tareas desarrolladas:
 * Valores umbrales: 1m/s en modo difícil, 5m/s en modo medio, 7m/s en modo fácil. Pulsando el botón de "Configuración" se puede acceder al selector de dificultad y cambiarla pulsando el botón que aparece.
 * En la versión de escritorio se ha colocado un botón que pausa y reanuda la partida cuando se está jugando. Este botón no se muestra en la versión de móvil ya que esta tiene un botón que muestra el menú y pausa la partida, y dentro de este tiene un botón para reanudar la partida y ocultar dicho menú.
 * Hay una página de *Instrucciones* y una página de *Acerca de* accesibles desde el menú.
+
+Enlace de rawgit: https://rawgit.com/PedroAmat/Lunar-Landing/master/LunarLanding/Index.html
