@@ -43,17 +43,21 @@ window.onload = function(){
 	}
 	document.getElementsByClassName("b")[0].onmouseup = motorOff;
 	
-	//encender/apagar al apretar/soltar una tecla
+	//encender/apagar al apretar/soltar la tecla W
 	document.onkeydown = function() {
-		if(!apretado){
-			apretado = true
-			if (a == g && y > 20 && !pause){
-				motorOn();
-			} else {
-				motorOff();
+		var key1 = event.which || event.keycode;
+		if(key1 == 87){
+			if(!apretado){
+				apretado = true
+				if (a == g && y > 20 && !pause){
+					motorOn();
+				} else {
+					motorOff();
+				}
 			}
 		}
 	}
+	
 	document.onkeyup = function(){
 		apretado = false;
 		motorOff();
@@ -98,9 +102,9 @@ function restart(){
 	fuel = 100;
 	document.getElementById("fuel").innerHTML = fuel;
 	document.getElementById("fin").style.display = "none";
-	
 	comenzado = true;
-	gameOver = false;motorOff();
+	gameOver = false;
+	motorOff();
 	hideMenu();
 }
 
@@ -130,6 +134,7 @@ function moverNave(){
 
 function win(){
 	gameOver = false;
+	document.getElementById("cohete").src = "img/CoheteSinFuego.png";
 	document.getElementById("fin").style.display = "block";
 	document.getElementById("fin").style.color = "green";
 	document.getElementById("fin").innerHTML = "¡Enhorabuena comandante! Misión cumplida con éxito.";
@@ -193,10 +198,10 @@ function hideMenu(){
 
 function pauseResume(){
 	if(comenzado && y > 20){
-		if(pause != true){
-			stop();
-		}else{
+		if(pause){
 			start();
+		}else{
+			stop();
 		}
 	}
 }
