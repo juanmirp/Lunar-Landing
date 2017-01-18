@@ -45,8 +45,8 @@ window.onload = function() {
 	
 	//encender/apagar al apretar/soltar la tecla W
 	document.onkeydown = function(event) {
-		var key1 = event.which || event.keycode;
-		if(key1 == 87) {
+		var keyCode = event.which || event.keyCode;
+		if(keyCode == 87) {
 			if(!apretado){
 				apretado = true
 				if (a == g && y > 20 && !pause) {
