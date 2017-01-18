@@ -14,7 +14,7 @@ var gameOver = false;
 
 window.onload = function() {
 	//mostrar menú móvil
-    document.getElementById("showm").onclick = showMenu;
+	document.getElementById("showm").onclick = showMenu;
 	
 	//ocultar menú móvil
 	document.getElementById("hidem").onclick = hideMenu;
@@ -33,20 +33,10 @@ window.onload = function() {
 	//cambiar dificultad
 	document.getElementsByTagName("input")[0].onclick = changeDifficulty;
 	
-	//encender/apagar el motor al pulsar/soltar el botón izquierdo del raton en la pantalla
-	document.getElementsByClassName("b")[0].onmousedown = function () {
-		if (a == g && y > 20 && !pause) {
-			motorOn();
-		} else {
-			motorOff();
-		}
-	}
-	document.getElementsByClassName("b")[0].onmouseup = motorOff;
-	
-	//encender/apagar al apretar/soltar la tecla W
+	//encender/apagar al apretar/soltar la tecla espaciadora
 	document.onkeydown = function(event) {
 		var keyCode = event.which || event.keyCode;
-		if(keyCode == 87) {
+		if(keyCode == 32) {
 			if(!apretado){
 				apretado = true
 				if (a == g && y > 20 && !pause) {
@@ -205,12 +195,14 @@ function pauseResume() {
 			stop();
 		}
 	}
+	document.getElementById("pausa").blur();
 }
 
 function showConfig() {
 	stop();
 	document.getElementsByClassName("configuracion")[0].style.display = "block";
 	document.getElementsByClassName("c")[0].style.display = "none";
+	document.getElementById("config").blur();
 }
 
 function hideConfig() {
