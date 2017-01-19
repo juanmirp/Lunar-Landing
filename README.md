@@ -1,11 +1,11 @@
-# Lunar-Landing
+# Lunar-Landing (versión minify)
 Esta versión del proyecto contiene:
 * HTML con los elementos del juego.
 * Css: tres versiones que cargan mediante media query dependiendo del tamaño de pantalla.
 * JS: con javascript que cubre todos los requisitos del proyecto.
 * Imágenes optimizadas.
 
-Enlace de rawgit: https://rawgit.com/PedroAmat/Lunar-Landing/master/LunarLanding/Index.html
+Enlace de rawgit: https://rawgit.com/PedroAmat/Lunar-Landing/minify/LunarLanding/Index.html
 
 Tareas desarrolladas:
 
